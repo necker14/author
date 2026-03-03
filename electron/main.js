@@ -32,8 +32,8 @@ const os = require('os');
     }
 })();
 
-// 日志文件 - 写到用户桌面方便查看
-const logFile = path.join(app.getPath('desktop'), 'author-debug.log');
+// 日志文件 - 写到应用安装根目录（exe 同级），方便查找
+const logFile = path.join(path.dirname(process.execPath), 'author-debug.log');
 function log(msg) {
     const line = `[${new Date().toISOString()}] ${msg}\n`;
     console.log(msg);
